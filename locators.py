@@ -23,11 +23,3 @@ class Xpath:
 
 class LinkText:
     personal_cabinet = "Личный Кабинет"
-
-
-class Links:
-    get_link = "https://stellarburgers.nomoreparties.site"
-    login_link = "https://stellarburgers.nomoreparties.site/login"
-    main_page = "https://stellarburgers.nomoreparties.site/"
-    profile = "https://stellarburgers.nomoreparties.site/account/profile"
-    forgot_password = "https://stellarburgers.nomoreparties.site/forgot-password"
