@@ -1,7 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from functions import registered_user
 from locators import Xpath, LinkText
 
 
@@ -26,7 +25,7 @@ class TestLoginUser:
             driver
     ):
         driver.find_element(By.LINK_TEXT, LinkText.personal_cabinet).click()
-        driver.find_element(By.XPATH, Xpath.login_input_email).send_keys(registered_user()[1])
+        driver.find_element(By.XPATH, Xpath.login_input_email).send_keys('andrew_5_000@ya.ru')
         driver.find_element(By.XPATH, Xpath.login_input_password).send_keys('1')
         driver.find_element(By.XPATH, Xpath.login_button).click()
         assert driver.find_element(By.XPATH, Xpath.error_input).text == 'Некорректный пароль'
@@ -37,8 +36,8 @@ class TestLoginUser:
     ):
         driver.find_element(By.XPATH, Xpath.login_button_on_main_page).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/login"))
-        driver.find_element(By.XPATH, Xpath.login_input_email).send_keys(registered_user()[1])
-        driver.find_element(By.XPATH, Xpath.login_input_password).send_keys(registered_user()[2])
+        driver.find_element(By.XPATH, Xpath.login_input_email).send_keys('andrew_5_000@ya.ru')
+        driver.find_element(By.XPATH, Xpath.login_input_password).send_keys('123456')
         driver.find_element(By.XPATH, Xpath.login_button).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/"))
         assert driver.current_url == "https://stellarburgers.nomoreparties.site/"
@@ -51,8 +50,8 @@ class TestLoginUser:
         driver.find_element(By.XPATH, Xpath.open_registration_on_login_page).click()
         driver.find_element(By.XPATH, Xpath.login_button_on_registration_page).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/login"))
-        driver.find_element(By.XPATH, Xpath.login_input_email).send_keys(registered_user()[1])
-        driver.find_element(By.XPATH, Xpath.login_input_password).send_keys(registered_user()[2])
+        driver.find_element(By.XPATH, Xpath.login_input_email).send_keys('andrew_5_000@ya.ru')
+        driver.find_element(By.XPATH, Xpath.login_input_password).send_keys('123456')
         driver.find_element(By.XPATH, Xpath.login_button).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/"))
         assert driver.current_url == "https://stellarburgers.nomoreparties.site/"
@@ -66,8 +65,8 @@ class TestLoginUser:
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/forgot-password"))
         driver.find_element(By.XPATH, Xpath.login_button_on_recovery_password_page).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/login"))
-        driver.find_element(By.XPATH, Xpath.login_input_email).send_keys(registered_user()[1])
-        driver.find_element(By.XPATH, Xpath.login_input_password).send_keys(registered_user()[2])
+        driver.find_element(By.XPATH, Xpath.login_input_email).send_keys('andrew_5_000@ya.ru')
+        driver.find_element(By.XPATH, Xpath.login_input_password).send_keys('123456')
         driver.find_element(By.XPATH, Xpath.login_button).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/"))
         assert driver.current_url == "https://stellarburgers.nomoreparties.site/"
